@@ -79,10 +79,6 @@ module CyberSource
         invalid_properties.push('invalid value for "descriptor", the character length must be smaller than or equal to 128.')
       end
 
-      if !@value.nil? && @value.to_s.length > 3072
-        invalid_properties.push('invalid value for "value", the character length must be smaller than or equal to 3072.')
-      end
-
       if !@encoding.nil? && @encoding.to_s.length > 6
         invalid_properties.push('invalid value for "encoding", the character length must be smaller than or equal to 6.')
       end
@@ -94,7 +90,6 @@ module CyberSource
     # @return true if the model is valid
     def valid?
       return false if !@descriptor.nil? && @descriptor.to_s.length > 128
-      return false if !@value.nil? && @value.to_s.length > 3072
       return false if !@encoding.nil? && @encoding.to_s.length > 6
       true
     end
@@ -112,10 +107,6 @@ module CyberSource
     # Custom attribute writer method with validation
     # @param [Object] value Value to be assigned
     def value=(value)
-      if !value.nil? && value.to_s.length > 3072
-        fail ArgumentError, 'invalid value for "value", the character length must be smaller than or equal to 3072.'
-      end
-
       @value = value
     end
 
