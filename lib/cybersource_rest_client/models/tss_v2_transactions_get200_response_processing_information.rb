@@ -112,7 +112,7 @@ module CyberSource
     # Custom attribute writer method with validation
     # @param [Object] payment_solution Value to be assigned
     def payment_solution=(payment_solution)
-      if !payment_solution.nil? && payment_solution.to_s.length > 12
+      if !payment_solution.nil?
         fail ArgumentError, 'invalid value for "payment_solution", the character length must be smaller than or equal to 12.'
       end
 
